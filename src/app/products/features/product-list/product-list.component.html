@@ -2,7 +2,7 @@
 
 <div class="mx-auto max-w-screen">
     @if (productsState.state.status() === 'loading') {
-        <p>Loading...</p>
+        <p>Carregando...</p>
     }@else {
         <div class="grid grid-cols-[repeat(4,300px)] gap-6">
             @for(product of productsState.state().products; track product){

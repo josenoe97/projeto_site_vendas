@@ -7,6 +7,7 @@ import { map } from "rxjs";
 interface State{
     products: Product[];
     status: 'loading' | 'success' | 'error';
+    page: number;
 }
 
 @Injectable()
@@ -17,13 +18,14 @@ export class ProductsStateService {
     private initialState: State = {
         products: [],
         status: 'loading' as const,
+        page: 1,
     };
 
     state = signalSlice({
         initialState: this.initialState,
         sources: [
             this.productsService
-            .getProducts()
+            .getProducts(1)
             .pipe(map((products) => ({products, status: 'success' as const}))),
         ],
     });
