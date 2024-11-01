@@ -12,6 +12,11 @@ import { CurrencyPipe } from '@angular/common';
   styles: ``,
 })
 export default class CartComponent {
+
+  buyFinish() {
+      alert('Compra realizada com sucesso!');
+  }
+  
   state = inject(CartStateService).state;
 
   onRemove(id: number) {
