@@ -26,9 +26,13 @@ export default class CartComponent {
   }
 
   onDecrease(product: ProductItemCart) {
+    if(product.quantity > 0){
     this.state.udpate({
       ...product,
       quantity: product.quantity - 1,
     });
   }
+  }
+
+  
 }
